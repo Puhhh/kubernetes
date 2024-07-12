@@ -78,3 +78,6 @@ talosctl apply-config --insecure -n 172.168.101.102 --file worker.yaml
 
 ### ArgoCD
 * use [terraform-kubernetes-argocd](https://github.com/Puhhh/terraform-kubernetes-argocd)
+
+### Jenkins
+* use [terraform-argocd-jenkins](https://github.com/Puhhh/terraform-argocd-jenkins)
