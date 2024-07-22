@@ -81,3 +81,6 @@ talosctl apply-config --insecure -n 172.168.101.102 --file worker.yaml
 
 ### Jenkins
 * use [terraform-argocd-jenkins](https://github.com/Puhhh/terraform-argocd-jenkins)
+
+### Tetragon
+* user [terraform-argocd-tetragon](https://github.com/Puhhh/terraform-argocd-tetragon)
