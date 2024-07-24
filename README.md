@@ -25,6 +25,13 @@ cluster:
       name: none
   proxy:
     disabled: true
+  discovery:
+      enabled: true
+      registries:
+          kubernetes:
+              disabled: true
+          service:
+              disabled: true
 ---
 ```
 </details>
@@ -50,6 +57,14 @@ vi worker.yaml
 machine:
     install:
         disk: /dev/nvme0n1 # The disk used for installations.
+cluster:
+  discovery:
+      enabled: true
+      registries:
+          kubernetes:
+              disabled: true
+          service:
+              disabled: true
 ---
 ```
 </details>
