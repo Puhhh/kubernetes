@@ -28,12 +28,12 @@ cluster:
   proxy:
     disabled: true
   discovery:
-      enabled: true
-      registries:
-          kubernetes:
-              disabled: true
-          service:
-              disabled: true
+        enabled: true
+        registries:
+            kubernetes:
+                disabled: true
+            service:
+                disabled: true
 ---
 ```
 </details>
@@ -62,13 +62,13 @@ machine:
     time:
         disabled: true
 cluster:
-  discovery:
-      enabled: true
-      registries:
-          kubernetes:
-              disabled: true
-          service:
-              disabled: true
+    discovery:
+        enabled: true
+        registries:
+            kubernetes:
+                disabled: true
+            service:
+                disabled: true
 ---
 ```
 </details>
@@ -91,6 +91,7 @@ talosctl apply-config --insecure -n 172.168.101.102 --file worker.yaml
 
 ### Cert Manager + Trust Manager
 * use [terraform-kubernetes-cert-manager](https://github.com/Puhhh/terraform-kubernetes-cert-manager)
+* use [terraform-kubernetes-trust-manager]https://github.com/Puhhh/terraform-kubernetes-trust-manager
 
 ### Istio
 * use [terraform-kubernetes-istio](https://github.com/Puhhh/terraform-kubernetes-istio)
