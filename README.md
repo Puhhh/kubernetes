@@ -19,6 +19,8 @@ vi controlplane.yaml
 machine:
     install:
         disk: /dev/nvme0n1 # The disk used for installations.
+    time:
+        disabled: true
 cluster:
   network:
     cni:
@@ -57,6 +59,8 @@ vi worker.yaml
 machine:
     install:
         disk: /dev/nvme0n1 # The disk used for installations.
+    time:
+        disabled: true
 cluster:
   discovery:
       enabled: true
