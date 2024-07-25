@@ -95,12 +95,3 @@ talosctl apply-config --insecure -n 172.168.101.102 --file worker.yaml
 
 ### Istio
 * use [terraform-kubernetes-istio](https://github.com/Puhhh/terraform-kubernetes-istio)
-
-### ArgoCD
-* use [terraform-kubernetes-argocd](https://github.com/Puhhh/terraform-kubernetes-argocd)
-
-### Jenkins
-* use [terraform-argocd-jenkins](https://github.com/Puhhh/terraform-argocd-jenkins)
-
-### Tetragon
-* user [terraform-argocd-tetragon](https://github.com/Puhhh/terraform-argocd-tetragon)
