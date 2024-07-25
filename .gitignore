@@ -1,9 +1,0 @@
-# See https://help.github.com/ignore-files/ for more about ignoring files.
-
-# dir
-core-os
-talos
-useful
-
-# fiels
-.DS_Store
