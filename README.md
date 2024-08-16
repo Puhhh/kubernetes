@@ -4,7 +4,7 @@
 
 ### Control plane
 
-![Control plane](/images/control-plane.png)
+![Control plane](/images/talos-os/control-plane.png)
 
 ```bash
 talosctl gen config k8s https://172.168.101.100:6433
@@ -46,7 +46,7 @@ talosctl kubeconfig -n 172.168.101.100 -e 172.168.101.100 --talosconfig=./talosc
 
 ### Workers
 
-![Worker 1](/images/worker-1.png) ![Worker 2](/images/worker-2.png)
+![Worker 1](/images/talos-os/worker-1.png) ![Worker 2](/images/talos-os/worker-2.png)
 
 ```bash
 vi worker.yaml
