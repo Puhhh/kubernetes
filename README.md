@@ -107,19 +107,34 @@ talosctl apply-config --insecure -n 172.168.101.102 --file worker.yaml
 ![client_2](/images/keycloak/client_2.png)
 ![client_3](/images/keycloak/client_3.png)
 ![client_4](/images/keycloak/client_4.png)
-![client_5](/images/keycloak/client_5.png)
+![group](/images/keycloak/group.png)
+
 <details>
 <summary>patch.yaml</summary>
 
 ```yaml
 ---
+machine:
+  files:
+    - content: |
+        -----BEGIN CERTIFICATE-----
+
+        -----END CERTIFICATE-----
+      permissions: 0644
+      path: /var/lib/certs/ca-certs
+      op: create
 cluster:
   apiServer:
     extraArgs:
-      oidc-issuer-url: https://keycloak.kubernetes.local/realms/kubernetes
       oidc-client-id: kube-api
-      oidc-username-claim: email
       oidc-groups-claim: groups
+      oidc-issuer-url: https://keycloak.kubernetes.local/realms/kubernetes
+      oidc-username-claim: email
+      oidc-ca-file: /etc/kubernetes/certs/ca-certs
+    extraVolumes:
+      - hostPath: /var/lib/certs
+        mountPath: /etc/kubernetes/certs
+        readonly: true
 ---
 ```
 </details>
@@ -131,11 +146,7 @@ talosctl patch mc --patch @patch.yaml -n 172.168.101.100 -e 172.168.101.100
 kubectl oidc-login setup \
 --oidc-issuer-url=https://keycloak.kubernetes.local/realms/kubernetes \
 --oidc-client-id=kube-api \
---oidc-client-secret=E84xJLGVhJqFVg4IrmqvLmfRjqo2rkwj \
---insecure-skip-tls-verify=true
-```
-```bash
-kubectl create clusterrolebinding oidc-cluster-admin --clusterrole=cluster-admin --user='https://keycloak.kubernetes.local/realms/kubernetes#124ce551-21ca-4bf8-8c11-03d89adab6b7'
+--oidc-client-secret=...
 ```
 ```bash
 kubectl config set-credentials oidc \
@@ -145,12 +156,29 @@ kubectl config set-credentials oidc \
 --exec-arg=get-token \
 --exec-arg=--oidc-issuer-url=https://keycloak.kubernetes.local/realms/kubernetes \
 --exec-arg=--oidc-client-id=kube-api \
---exec-arg=--oidc-client-secret=E84xJLGVhJqFVg4IrmqvLmfRjqo2rkwj \
---exec-arg=--insecure-skip-tls-verify
+--exec-arg=--oidc-client-secret=... 
+```
+<details>
+<summary>clusterrolebinding.yaml</summary>
+
+```yaml
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: oidc-admin
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+- kind: Group
+  name: kube-adm
+```
+</details>
+
+```bash
+kubectl config set-context oidc --namespace=default --user=oidc --cluster=k8s
 ```
 ```bash
-kubectl --user=oidc get nodes
-```
-```bash
-kubectl config set-context --current --user=oidc
+kubectl config use-context oidc
 ```
