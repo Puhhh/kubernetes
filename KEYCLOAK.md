@@ -1,3 +1,52 @@
+### LDAP Federation
+
+* General options
+
+| Option           | Value              |
+| ---------------- | ----------------- |
+| UI display name  | kubernetes.local   |
+| Vendor           | Active Directory   |
+
+* Connection and authentication settings
+
+| Option              | Value              |
+| ------------------- | ------------------ |
+| Connection URL      | ldaps://...        |
+| Connection pooling  | On                 |
+| Bind DN             | User               |
+| Bind credentials    | Password           |
+
+* LDAP searching and updating
+
+| Option                  | Value                             |
+| ----------------------- | --------------------------------- |
+| Edit mode               | READ_ONLY                         |
+| Users DN                | OU=Example,DC=kubernetes,DC=local |
+| Username LDAP attribute | sAMAccountName                    |
+| User object classes     | user                              |
+| Search scope            | Subtree                           |
+
+* Synchronization settings
+
+| Option                      | Value   |
+| --------------------------- | ------- |
+| Sync Registrations          | Off     |
+| Periodic full sync          | On      |
+| Full sync period            | 604800  |
+| Periodic changed users sync | On      |
+| Changed users sync period   | 86400   |
+
+* Advanced settings
+
+| Option      | Value |
+| ----------- | ----- |
+| Trust Email | On    |
+
+![ldap_1](/images/keycloak/ldap/ldap_1.png)
+![ldap_2](/images/keycloak/ldap/ldap_2.png)
+![ldap_3](/images/keycloak/ldap/ldap_3.png)
+![ldap_4](/images/keycloak/ldap/ldap_4.png)
+
 ### Kube API Auth
 ![client_1](/images/keycloak/kube-api/client_1.png)
 ![client_2](/images/keycloak/kube-api/client_2.png)
