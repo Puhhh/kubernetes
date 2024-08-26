@@ -80,24 +80,18 @@ talosctl apply-config --insecure -n 172.168.101.102 --file worker.yaml
 
 ## Kubernetes Configure
 
-### Cilium
-* use [terraform-kubernetes-cilium](https://github.com/Puhhh/terraform-kubernetes-cilium)
+[terraform-kubernetes-cilium](https://github.com/Puhhh/terraform-kubernetes-cilium)
 
-### MetalLB
-* use [terraform-kubernetes-metallb](https://github.com/Puhhh/terraform-kubernetes-metallb)
+[terraform-kubernetes-metallb](https://github.com/Puhhh/terraform-kubernetes-metallb)
 
-### Local Path Provisioner
-* use [terraform-kubernetes-local-path-provisioner](https://github.com/Puhhh/terraform-kubernetes-local-path-provisioner)
+[terraform-kubernetes-local-path-provisioner](https://github.com/Puhhh/terraform-kubernetes-local-path-provisioner)
 
-### Cert Manager + Trust Manager
-* use [terraform-kubernetes-cert-manager](https://github.com/Puhhh/terraform-kubernetes-cert-manager)
-* use [terraform-kubernetes-trust-manager](https://github.com/Puhhh/terraform-kubernetes-trust-manager)
+[terraform-kubernetes-cert-manager](https://github.com/Puhhh/terraform-kubernetes-cert-manager)
 
-### Istio
-* use [terraform-kubernetes-istio](https://github.com/Puhhh/terraform-kubernetes-istio)
+[terraform-kubernetes-trust-manager](https://github.com/Puhhh/terraform-kubernetes-trust-manager)
 
-### ArgoCD
-* use [terraform-kubernetes-argocd](https://github.com/Puhhh/terraform-kubernetes-argocd)
+[terraform-kubernetes-istio](https://github.com/Puhhh/terraform-kubernetes-istio)
 
-### Keycloak
-* use [terraform-argocd-keycloak](https://github.com/Puhhh/terraform-argocd-keycloak)
+[terraform-kubernetes-argocd](https://github.com/Puhhh/terraform-kubernetes-argocd)
+
+[terraform-argocd-keycloak](https://github.com/Puhhh/terraform-argocd-keycloak)
