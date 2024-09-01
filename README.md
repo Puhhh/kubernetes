@@ -95,3 +95,7 @@ talosctl apply-config --insecure -n 172.168.101.102 --file worker.yaml
 [terraform-kubernetes-argocd](https://github.com/Puhhh/terraform-kubernetes-argocd)
 
 [terraform-argocd-keycloak](https://github.com/Puhhh/terraform-argocd-keycloak)
+
+---
+
+[terragrunt-kubernetes](https://github.com/Puhhh/terragrunt-kubernetes)
