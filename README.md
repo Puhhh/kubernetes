@@ -4,39 +4,10 @@
 
 ### Control plane
 
-![Control plane](/images/talos-os/control-plane.png)
-
 ```bash
-talosctl gen config k8s https://172.168.101.100:6433
-talosctl -n 172.168.101.100 disks --insecure
-vi controlplane.yaml
+talosctl gen secrets -o secrets.yaml
+talosctl gen config --with-secrets secrets.yaml k8s-test https://172.168.101.100:6443
 ```
-<details>
-<summary>controlplane.yaml</summary>
-
-```yaml
----
-machine:
-    install:
-        disk: /dev/nvme0n1 # The disk used for installations.
-    time:
-        disabled: true
-cluster:
-  network:
-    cni:
-      name: none
-  proxy:
-    disabled: true
-  discovery:
-        enabled: true
-        registries:
-            kubernetes:
-                disabled: true
-            service:
-                disabled: true
----
-```
-</details>
 
 ```bash
 talosctl apply-config --insecure -n 172.168.101.100 --file controlplane.yaml
@@ -46,36 +17,9 @@ talosctl kubeconfig -n 172.168.101.100 -e 172.168.101.100 --talosconfig=./talosc
 
 ### Workers
 
-![Worker 1](/images/talos-os/worker-1.png) ![Worker 2](/images/talos-os/worker-2.png)
-
 ```bash
-vi worker.yaml
-```
-<details>
-<summary>worker.yaml</summary>
-
-```yaml
----
-machine:
-    install:
-        disk: /dev/nvme0n1 # The disk used for installations.
-    time:
-        disabled: true
-cluster:
-    discovery:
-        enabled: true
-        registries:
-            kubernetes:
-                disabled: true
-            service:
-                disabled: true
----
-```
-</details>
-
-```bash
-talosctl apply-config --insecure -n 172.168.101.101 --file worker.yaml
-talosctl apply-config --insecure -n 172.168.101.102 --file worker.yaml
+talosctl apply-config --insecure -n 172.168.101.101 --file worker.yaml --talosconfig=./talosconfig
+talosctl apply-config --insecure -n 172.168.101.102 --file worker.yaml --talosconfig=./talosconfig
 ```
 
 ## Kubernetes Configure
@@ -93,6 +37,8 @@ talosctl apply-config --insecure -n 172.168.101.102 --file worker.yaml
 [terraform-kubernetes-istio](https://github.com/Puhhh/terraform-kubernetes-istio)
 
 [terraform-kubernetes-argocd](https://github.com/Puhhh/terraform-kubernetes-argocd)
+
+[terraform-kubernetes-prometheus](https://github.com/Puhhh/terraform-kubernetes-prometheus)
 
 [terraform-argocd-keycloak](https://github.com/Puhhh/terraform-argocd-keycloak)
 
