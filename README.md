@@ -40,9 +40,9 @@ talosctl apply-config --insecure -n 172.168.101.102 --file worker.yaml --talosco
 
 [terraform-kubernetes-prometheus](https://github.com/Puhhh/terraform-kubernetes-prometheus)
 
-[terraform-argocd-keycloak](https://github.com/Puhhh/terraform-argocd-keycloak)
+[terraform-kubernetes-keycloak](https://github.com/Puhhh/terraform-kubernetes-keycloak)
 
-[terraform-argocd-kiali](https://github.com/Puhhh/terraform-argocd-kiali)
+[terraform-kubernetes-kiali](https://github.com/Puhhh/terraform-kubernetes-kiali)
 
 ---
 
