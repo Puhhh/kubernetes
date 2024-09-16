@@ -182,3 +182,9 @@ kubectl edit configmap argocd-rbac-cm -n argocd
 ...
 ```
 </details>
+
+### Kiali Auth
+![client_1](/images/keycloak/kiali/client_1.png)
+![client_2](/images/keycloak/kiali/client_2.png)
+![client_3](/images/keycloak/kiali/client_3.png)
+![client_4](/images/keycloak/kiali/client_4.png)
