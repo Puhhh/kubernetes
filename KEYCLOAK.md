@@ -129,6 +129,8 @@ kubectl config use-context oidc
 ```
 
 ### ArgoCD Auth
+![scopes_1](/images/keycloak/argocd/scopes_1.png)
+![scopes_2](/images/keycloak/argocd/scopes_2.png)
 ![client_1](/images/keycloak/argocd/client_1.png)
 ![client_2](/images/keycloak/argocd/client_2.png)
 ![client_3](/images/keycloak/argocd/client_3.png)
