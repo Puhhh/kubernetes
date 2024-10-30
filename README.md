@@ -46,6 +46,8 @@ talosctl apply-config --insecure -n 172.168.101.102 --file worker.yaml --talosco
 
 [terraform-kubernetes-kiali](https://github.com/Puhhh/terraform-kubernetes-kiali)
 
+[terraform-kubernetes-helm-dashboard](https://github.com/Puhhh/terraform-kubernetes-helm-dashboard)
+
 ---
 
 [terragrunt-kubernetes](https://github.com/Puhhh/terragrunt-kubernetes)
